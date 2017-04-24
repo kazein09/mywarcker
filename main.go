@@ -7,10 +7,6 @@ import (
     "log"
     "net"
     "net/http"
-
-    // Third party packages
-    "github.com/julienschmidt/httprouter"
-    "github.com/skratchdot/open-golang/open"
 )
 
 ifaces, err := net.Interfaces()
