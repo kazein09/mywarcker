@@ -1,3 +1,8 @@
+package main
+
+import "addrs"
+import "fmt"
+
 // GetLocalIP returns the non loopback local IP of the host
 func GetLocalIP() string {
     addrs, err := net.InterfaceAddrs()
