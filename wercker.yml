@@ -44,3 +44,13 @@ build:
         code: |
           go test ./main.go
 
+deploy:
+  steps:
+    - internal/docker-push:
+        username: $USERNAME
+        password: $PASSWORD
+        tag: my-amazing-tag
+        cmd: my-amazing-command
+        ports: "80"
+        repository: kazein09/wercker
+        registry: https://registry.hub.docker.com
