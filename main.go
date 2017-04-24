@@ -34,3 +34,6 @@ func externalIP() (string, error) {
 		}
 		for _, addr := range addrs {
 			var ip net.IP
+	  }
+  }
+}
