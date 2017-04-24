@@ -1,7 +1,17 @@
 package main
 
-import "addrs"
-import "fmt"
+import (
+    // Standard library packages
+    "fmt"
+    "strconv"
+    "log"
+    "net"
+    "net/http"
+
+    // Third party packages
+    "github.com/julienschmidt/httprouter"
+    "github.com/skratchdot/open-golang/open"
+)
 
 // GetLocalIP returns the non loopback local IP of the host
 func GetLocalIP() string {
