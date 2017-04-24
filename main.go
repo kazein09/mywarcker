@@ -1,39 +1,21 @@
 package main
 
-import (
-	"errors"
-	"fmt"
-	"net"
-)
+import "fmt"
 
 func main() {
-
-	ip, err := externalIP()
-	if err != nil {
-		fmt.Println(err)
-	}
-	fmt.Println(ip)
-
-}
-
-func externalIP() (string, error) {
-	ifaces, err := net.Interfaces()
-	if err != nil {
-		return "", err
-	}
-	for _, iface := range ifaces {
-		if iface.Flags&net.FlagUp == 0 {
-			continue // interface down
-		}
-		if iface.Flags&net.FlagLoopback != 0 {
-			continue // loopback interface
-		}
-		addrs, err := iface.Addrs()
-		if err != nil {
-			return "", err
-		}
-		for _, addr := range addrs {
-			var ip net.IP
-	  }
-  }
+    if 7%2 == 0 {
+        fmt.Println("7 is even")
+    } else {
+        fmt.Println("7 is odd")
+    }
+    if 8%4 == 0 {
+        fmt.Println("8 is divisible by 4")
+    }
+    if num := 9; num < 0 {
+        fmt.Println(num, "is negative")
+    } else if num < 10 {
+        fmt.Println(num, "has 1 digit")
+    } else {
+        fmt.Println(num, "has multiple digits")
+    }
 }
