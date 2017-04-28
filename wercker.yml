@@ -44,12 +44,6 @@ build:
         code: |
           go test ./main.go
 
-   # tesing run of main go
-    - script:
-        name: go test
-        code: |
-          go run ./main.go
-
 deploy:
   steps:
     - internal/docker-push:
