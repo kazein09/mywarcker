@@ -1,11 +1,25 @@
-// Package stringutil contains utility functions for working with strings.
-package stringutil
+package main
 
-// Reverse returns its argument string reversed rune-wise left to right.
-func Reverse(s string) string {
-	r := []rune(s)
-	for i, j := 0, len(r)-1; i < len(r)/2; i, j = i+1, j-1 {
-		r[i], r[j] = r[j], r[i]
-	}
-	return string(r)
+import "fmt"
+import "os"
+import "os/signal"
+import "syscall"
+
+func main() {
+
+    sigs := make(chan os.Signal, 1)
+    done := make(chan bool, 1)
+
+    signal.Notify(sigs, syscall.SIGINT, syscall.SIGTERM)
+
+    go func() {
+        sig := <-sigs
+        fmt.Println()
+        fmt.Println(sig)
+        done <- true
+    }()
+
+    fmt.Println("awaiting signal")
+    <-done
+    fmt.Println("exiting")
 }
